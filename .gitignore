@@ -1,0 +1,10 @@
+.project
+.settings
+target
+.DS_Store
+bin
+.metadata
+.classpath
+pizzashack.properties
+.tmp
+
