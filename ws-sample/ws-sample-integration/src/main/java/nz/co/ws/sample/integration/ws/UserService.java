@@ -4,12 +4,16 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
+import javax.xml.ws.RequestWrapper;
 
 import nz.co.ws.sample.model.User;
 
 //@SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
 @WebService(targetNamespace = "http://ws.integration.sample.ws.co.nz", name = "UserEndpoint")
 public interface UserService {
+	 @RequestWrapper(
+             localName = "CreateUserRequest",
+             targetNamespace = "http://ws.integration.sample.ws.co.nz")
 	@WebResult(name = "User", targetNamespace = "http://ws.integration.sample.ws.co.nz", partName = "User")
 	@WebMethod(operationName = "CreateUser", action = "http://ws.integration.sample.ws.co.nz/CreateUser")
 	User createUser(
