@@ -1,9 +1,9 @@
 package nz.co.ws.sample.integration.route;
 
-import nz.co.ws.sample.integration.ws.FaultHandler;
+import javax.annotation.Resource;
 
-import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
+import nz.co.ws.sample.integration.processor.UserServiceProcessor;
+
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
@@ -12,18 +12,19 @@ public class UserWsRoute extends RouteBuilder {
 
 	public static final String ENDPOINT = "cxf:bean:userWsEndpoint";
 
+	@Resource
+	private UserServiceProcessor userServiceProcessor;
+
 	@Override
 	public void configure() throws Exception {
 
 		from(ENDPOINT).routeId(ENDPOINT).onException(Exception.class)
 				.handled(true)
-				.setFaultBody(method(FaultHandler.class, "createFault")).end()
+				// .setFaultBody(method(FaultHandler.class,
+				// "createFault"))
+				.end()
 				.to("log:input")
-				.process(new Processor() {
-					@Override
-					public void process(Exchange exchange) throws Exception {
-
-					}
-				});
+				.process(userServiceProcessor)
+				.to("log:output");
 	}
 }

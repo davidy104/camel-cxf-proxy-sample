@@ -15,7 +15,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>4.0.6.RELEASE</spring.version>
 		<camel.version>2.14.1</camel.version>
-		<cxf.version>2.7.7</cxf.version>
+		<cxf.version>3.0.2</cxf.version>
 		<groovy.version>2.3.6</groovy.version>
 		<guava.version>17.0</guava.version>
 		<jolokia.version>1.2.2</jolokia.version>
@@ -104,16 +104,6 @@
 			<dependency>
 				<artifactId>jackson-annotations</artifactId>
 				<groupId>com.fasterxml.jackson.core</groupId>
-				<version>${jackson.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.fasterxml.jackson.core</groupId>
-				<artifactId>jackson-core</artifactId>
-				<version>${jackson.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.fasterxml.jackson.core</groupId>
-				<artifactId>jackson-databind</artifactId>
 				<version>${jackson.version}</version>
 			</dependency>
 			<dependency>
@@ -305,7 +295,7 @@
 			</dependency>
 			<dependency>
 				<groupId>org.apache.camel</groupId>
-				<artifactId>camel-test</artifactId>
+				<artifactId>camel-saxon</artifactId>
 				<version>${camel.version}</version>
 			</dependency>
 			<dependency>
@@ -351,6 +341,11 @@
 			<dependency>
 				<groupId>org.apache.camel</groupId>
 				<artifactId>camel-restlet</artifactId>
+				<version>${camel.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-cxf-transport</artifactId>
 				<version>${camel.version}</version>
 			</dependency>
 		</dependencies>

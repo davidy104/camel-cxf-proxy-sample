@@ -1,6 +1,6 @@
-package nz.co.ws.sample.integration.config;
+package nz.co.ws.client.config;
 
-import nz.co.ws.sample.integration.ws.UserService;
+import nz.co.ws.client.stub.UserEndpoint;
 
 import org.apache.camel.component.cxf.CxfEndpoint;
 import org.apache.camel.component.cxf.DataFormat;
@@ -14,17 +14,20 @@ import org.springframework.context.annotation.ImportResource;
 		"classpath:META-INF/cxf/cxf-servlet.xml" })
 public class CamelCxfConfig {
 
-	// http://localhost:8989/wssample/ws/user?wsdl
 	@Bean
-	public CxfEndpoint userWsEndpoint() {
+	public CxfEndpoint userServiceEndpoint() {
 		CxfEndpoint cxfEndpoint = new CxfEndpoint();
-		cxfEndpoint.setAddress("/user");
-		cxfEndpoint.setServiceClass(UserService.class);
-		LoggingOutInterceptor loggingOutInterceptor = new LoggingOutInterceptor();
-		loggingOutInterceptor.setPrettyLogging(true);
-		cxfEndpoint.getOutInterceptors().add(loggingOutInterceptor);
+		cxfEndpoint.setAddress("http://localhost:8989/wssample/ws/user");
+		cxfEndpoint.setServiceClass(UserEndpoint.class);
+		cxfEndpoint.getOutInterceptors().add(loggingOutInterceptor());
 		cxfEndpoint.setDataFormat(DataFormat.POJO);
+		cxfEndpoint.setDefaultOperationNamespace("http://ws.integration.sample.ws.co.nz");
 		return cxfEndpoint;
+	}
+
+	@Bean
+	public LoggingOutInterceptor loggingOutInterceptor() {
+		return new LoggingOutInterceptor("target/write");
 	}
 
 }

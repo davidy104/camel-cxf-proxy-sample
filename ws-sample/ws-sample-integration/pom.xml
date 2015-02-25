@@ -11,7 +11,10 @@
 	<artifactId>ws-sample-integration</artifactId>
 	<name>ws-sample-integration</name>
 	<url>http://maven.apache.org</url>
-
+	<properties>
+		<jaxb2-basics.version>0.6.4</jaxb2-basics.version>
+		<maven-jaxb2-plugin.version>0.8.2</maven-jaxb2-plugin.version>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
@@ -24,10 +27,20 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-core</artifactId>
 		</dependency>
-			<dependency>
+		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-spring</artifactId>
 		</dependency>
@@ -39,6 +52,43 @@
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-cxf</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-cxf-transport</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-saxon</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-bindy</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jaxb</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-xstream</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jackson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-gson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-xmljson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jvnet.jaxb2_commons</groupId>
+			<artifactId>jaxb2-basics-runtime</artifactId>
+			<version>${jaxb2-basics.version}</version>
+		</dependency>
 		<!-- cxf -->
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
@@ -48,14 +98,30 @@
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-transports-http</artifactId>
 		</dependency>
+		<!-- 
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-core</artifactId>
 		</dependency>
+		 -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-bindings-soap</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http-jetty</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
+		<defaultGoal>install</defaultGoal>
 		<plugins>
+
 			<!-- CXF wsdl2java generator, will plugin to the compile goal -->
 			<plugin>
 				<groupId>org.apache.cxf</groupId>
@@ -66,6 +132,15 @@
 					</wsdlOption> </wsdlOptions> </configuration> <goals> <goal>wsdl2java</goal> 
 					</goals> </execution> </executions> -->
 			</plugin>
+
+			<!-- <plugin> <groupId>org.jvnet.jaxb2.maven2</groupId> <artifactId>maven-jaxb2-plugin</artifactId> 
+				<version>${maven-jaxb2-plugin.version}</version> <executions> <execution> 
+				<id>generate</id> <goals> <goal>generate</goal> </goals> </execution> </executions> 
+				<configuration> <schemaDirectory>src/main/xsd</schemaDirectory> <generatePackage>com.camelcookbook.transformation.myschema</generatePackage> 
+				<extension>true</extension> <args> <arg>-XtoString</arg> <arg>-Xequals</arg> 
+				<arg>-XhashCode</arg> <arg>-Xcopyable</arg> </args> <plugins> <plugin> <groupId>org.jvnet.jaxb2_commons</groupId> 
+				<artifactId>jaxb2-basics</artifactId> <version>${jaxb2-basics.version}</version> 
+				</plugin> </plugins> </configuration> </plugin> -->
 
 			<plugin>
 				<groupId>org.apache.camel</groupId>

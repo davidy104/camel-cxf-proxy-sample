@@ -1,0 +1,14 @@
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" />
+	<soap:Body>
+		<CreateUser xmlns="http://ws.integration.sample.ws.co.nz">
+			<roleRequest xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">admin
+			</roleRequest>
+			<infoRequest xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">&lt;user&gt;
+			</infoRequest>
+		</CreateUser>
+	</soap:Body>
+</soap:Envelope>
