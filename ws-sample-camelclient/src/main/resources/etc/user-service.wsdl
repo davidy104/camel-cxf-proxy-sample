@@ -5,10 +5,30 @@
 	name="UserServiceService" targetNamespace="http://ws.integration.sample.ws.co.nz">
 	<wsdl:types>
 		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-			xmlns:tns="http://ws.integration.sample.ws.co.nz"
-			attributeFormDefault="unqualified" elementFormDefault="unqualified"
-			targetNamespace="http://ws.integration.sample.ws.co.nz">
+			xmlns:tns="http://ws.integration.sample.ws.co.nz" elementFormDefault="unqualified"
+			targetNamespace="http://ws.integration.sample.ws.co.nz" version="1.0">
+
+			<xs:element name="CreateUserRequest" type="tns:CreateUserRequest" />
+
+			<xs:element name="CreateUserResponse" type="tns:CreateUserResponse" />
+
 			<xs:element name="User" type="tns:User" />
+
+			<xs:complexType name="CreateUserRequest">
+				<xs:sequence>
+					<xs:element form="qualified" minOccurs="0" name="role"
+						type="xs:string" />
+					<xs:element form="qualified" minOccurs="0" name="info"
+						type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="CreateUserResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" ref="tns:User" />
+				</xs:sequence>
+			</xs:complexType>
+
 			<xs:complexType name="User">
 				<xs:sequence>
 					<xs:element name="userId" type="xs:string" />
@@ -17,21 +37,18 @@
 					<xs:element name="role" type="xs:string" />
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="roleRequest" nillable="true" type="xs:string" />
-			<xs:element name="infoRequest" nillable="true" type="xs:string" />
+
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="CreateUser">
-		<wsdl:part element="tns:roleRequest" name="role">
-		</wsdl:part>
-		<wsdl:part element="tns:infoRequest" name="info">
+		<wsdl:part element="tns:CreateUserRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="CreateUserResponse">
-		<wsdl:part element="tns:User" name="User">
+		<wsdl:part element="tns:CreateUserResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
-	<wsdl:portType name="UserEndpoint">
+	<wsdl:portType name="UserEndpointPortType">
 		<wsdl:operation name="CreateUser">
 			<wsdl:input message="tns:CreateUser" name="CreateUser">
 			</wsdl:input>
@@ -39,7 +56,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:portType>
-	<wsdl:binding name="UserServiceServiceSoapBinding" type="tns:UserEndpoint">
+	<wsdl:binding name="UserServiceServiceSoapBinding" type="tns:UserEndpointPortType">
 		<soap:binding style="document"
 			transport="http://schemas.xmlsoap.org/soap/http" />
 		<wsdl:operation name="CreateUser">
@@ -54,7 +71,7 @@
 		</wsdl:operation>
 	</wsdl:binding>
 	<wsdl:service name="UserServiceService">
-		<wsdl:port binding="tns:UserServiceServiceSoapBinding" name="UserEndpointPort">
+		<wsdl:port binding="tns:UserServiceServiceSoapBinding" name="UserEndpointPortTypePort">
 			<soap:address location="http://localhost:8989/wssample/ws/user" />
 		</wsdl:port>
 	</wsdl:service>

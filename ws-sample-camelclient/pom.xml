@@ -246,11 +246,12 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
-			<!-- CXF wsdl2java generator, will plugin to the compile goal -->
+			<!-- CXF wsdl2java generator, will plugin to the compile goal
 			<plugin>
 				<groupId>org.apache.cxf</groupId>
 				<artifactId>cxf-codegen-plugin</artifactId>
 				<version>${cxf.version}</version>
+				
 				<executions>
 					<execution>
 						<id>generate-sources</id>
@@ -277,7 +278,7 @@
 					</execution>
 				</executions>
 			</plugin>
-
+ -->
 			<plugin>
 				<groupId>org.apache.camel</groupId>
 				<artifactId>camel-maven-plugin</artifactId>

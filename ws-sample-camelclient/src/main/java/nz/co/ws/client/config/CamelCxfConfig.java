@@ -1,6 +1,6 @@
 package nz.co.ws.client.config;
 
-import nz.co.ws.client.stub.UserEndpoint;
+import nz.co.ws.client.stub.UserEndpointPortType;
 
 import org.apache.camel.component.cxf.CxfEndpoint;
 import org.apache.camel.component.cxf.DataFormat;
@@ -18,7 +18,7 @@ public class CamelCxfConfig {
 	public CxfEndpoint userServiceEndpoint() {
 		CxfEndpoint cxfEndpoint = new CxfEndpoint();
 		cxfEndpoint.setAddress("http://localhost:8989/wssample/ws/user");
-		cxfEndpoint.setServiceClass(UserEndpoint.class);
+		cxfEndpoint.setServiceClass(UserEndpointPortType.class);
 		cxfEndpoint.getOutInterceptors().add(loggingOutInterceptor());
 		cxfEndpoint.setDataFormat(DataFormat.POJO);
 		cxfEndpoint.setDefaultOperationNamespace("http://ws.integration.sample.ws.co.nz");
