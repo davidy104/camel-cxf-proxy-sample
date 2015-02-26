@@ -4,15 +4,14 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>nz.co.ws.sample</groupId>
-		<artifactId>ws-sample</artifactId>
+		<groupId>nz.co.ws.proxy</groupId>
+		<artifactId>ws-sample-proxy</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-
-	<artifactId>ws-sample-web</artifactId>
+	<artifactId>ws-sample-proxy-web</artifactId>
 	<packaging>war</packaging>
-	<name>ws-sample-web Maven Webapp</name>
-	<url>http://maven.apache.org</url>
+	<name>ws-sample-proxy-web Maven Webapp</name>
+
 	<dependencies>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -25,17 +24,12 @@
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>ws-sample-shared</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>ws-sample-integration</artifactId>
+			<artifactId>ws-sample-proxy-integration</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>ws-sample-web</finalName>
+		<finalName>ws-sample-proxy-web</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -64,11 +58,11 @@
 					<jvmArgs>-Xmx2048m -Xms1536m -XX:PermSize=128m -XX:MaxPermSize=256m</jvmArgs>
 					<scanIntervalSeconds>20</scanIntervalSeconds>
 					<webApp>
-						<contextPath>/wssample</contextPath>
+						<contextPath>/wsproxy</contextPath>
 					</webApp>
 					<connectors>
 						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-							<port>8989</port>
+							<port>9898</port>
 						</connector>
 					</connectors>
 					<stopPort>18080</stopPort>

@@ -1,496 +1,544 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://www.documentrequester.com/schemas/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://www.documentrequester.com/schemas/" xmlns:intf="http://www.documentrequester.com/schemas/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<!--WSDL created by Apache Axis version: 1.3
-Built on Oct 05, 2005 (05:23:37 EDT)-->
- <wsdl:types>
-  <schema targetNamespace="http://www.documentrequester.com/schemas/" xmlns="http://www.w3.org/2001/XMLSchema">
-   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
-   <complexType name="ArrayOfString">
-    <complexContent>
-     <restriction base="soapenc:Array">
-      <attribute ref="soapenc:arrayType" wsdl:arrayType="xsd:string[]"/>
-     </restriction>
-    </complexContent>
-   </complexType>
-  </schema>
- </wsdl:types>
+<wsdl:definitions targetNamespace="http://www.documentrequester.com/schemas/"
+	xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://www.documentrequester.com/schemas/"
+	xmlns:intf="http://www.documentrequester.com/schemas/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<!--WSDL created by Apache Axis version: 1.3 Built on Oct 05, 2005 (05:23:37 
+		EDT) -->
+	<wsdl:types>
+		<schema targetNamespace="http://www.documentrequester.com/schemas/"
+			xmlns="http://www.w3.org/2001/XMLSchema">
+			<import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+			<complexType name="ArrayOfString">
+				<complexContent>
+					<restriction base="soapenc:Array">
+						<attribute ref="soapenc:arrayType" wsdl:arrayType="xsd:string[]" />
+					</restriction>
+				</complexContent>
+			</complexType>
+		</schema>
+	</wsdl:types>
 
-   <wsdl:message name="outputProfilesForDocumentResponse">
+	<wsdl:message name="outputProfilesForDocumentResponse">
 
-      <wsdl:part name="outputProfilesForDocumentReturn" type="intf:ArrayOfString"/>
+		<wsdl:part name="outputProfilesForDocumentReturn" type="intf:ArrayOfString" />
 
-   </wsdl:message>
+	</wsdl:message>
 
-   <wsdl:message name="publishMSOHTMLDocumentResponse">
+	<wsdl:message name="publishMSOHTMLDocumentResponse">
 
-      <wsdl:part name="publishMSOHTMLDocumentReturn" type="intf:ArrayOfString"/>
+		<wsdl:part name="publishMSOHTMLDocumentReturn" type="intf:ArrayOfString" />
 
-   </wsdl:message>
+	</wsdl:message>
 
-   <wsdl:message name="publishAndReturnDocumentResponse">
+	<wsdl:message name="publishAndReturnDocumentResponse">
 
-      <wsdl:part name="publishAndReturnDocumentReturn" type="xsd:base64Binary"/>
+		<wsdl:part name="publishAndReturnDocumentReturn" type="xsd:base64Binary" />
 
-   </wsdl:message>
+	</wsdl:message>
 
-   <wsdl:message name="publishAndReturnDocumentRequest">
+	<wsdl:message name="publishAndReturnDocumentRequest">
 
-      <wsdl:part name="documentName" type="xsd:string"/>
+		<wsdl:part name="documentName" type="xsd:string" />
 
-      <wsdl:part name="userName" type="xsd:string"/>
+		<wsdl:part name="userName" type="xsd:string" />
 
-      <wsdl:part name="password" type="xsd:string"/>
+		<wsdl:part name="password" type="xsd:string" />
 
-      <wsdl:part name="outputProfile" type="xsd:string"/>
+		<wsdl:part name="outputProfile" type="xsd:string" />
 
-      <wsdl:part name="customerData" type="xsd:string"/>
+		<wsdl:part name="customerData" type="xsd:string" />
 
-      <wsdl:part name="applicationName" type="xsd:string"/>
+		<wsdl:part name="applicationName" type="xsd:string" />
 
-   </wsdl:message>
+	</wsdl:message>
 
-   <wsdl:message name="publishDocumentResponse">
+	<wsdl:message name="publishDocumentResponse">
 
-      <wsdl:part name="publishDocumentReturn" type="xsd:string"/>
+		<wsdl:part name="publishDocumentReturn" type="xsd:string" />
 
-   </wsdl:message>
+	</wsdl:message>
 
-   <wsdl:message name="getBDTResponse">
+	<wsdl:message name="getBDTResponse">
 
-      <wsdl:part name="getBDTReturn" type="xsd:string"/>
+		<wsdl:part name="getBDTReturn" type="xsd:string" />
 
-   </wsdl:message>
+	</wsdl:message>
 
-   <wsdl:message name="getBDTRequest">
+	<wsdl:message name="getBDTRequest">
 
-      <wsdl:part name="documentName" type="xsd:string"/>
+		<wsdl:part name="documentName" type="xsd:string" />
 
-      <wsdl:part name="customerData" type="xsd:string"/>
+		<wsdl:part name="customerData" type="xsd:string" />
 
-      <wsdl:part name="userName" type="xsd:string"/>
+		<wsdl:part name="userName" type="xsd:string" />
 
-      <wsdl:part name="password" type="xsd:string"/>
+		<wsdl:part name="password" type="xsd:string" />
 
-      <wsdl:part name="appName" type="xsd:string"/>
+		<wsdl:part name="appName" type="xsd:string" />
 
-   </wsdl:message>
+	</wsdl:message>
 
-   <wsdl:message name="documentsForCategoryRequest">
+	<wsdl:message name="documentsForCategoryRequest">
 
-      <wsdl:part name="documentCategory" type="xsd:string"/>
+		<wsdl:part name="documentCategory" type="xsd:string" />
 
-      <wsdl:part name="userName" type="xsd:string"/>
+		<wsdl:part name="userName" type="xsd:string" />
 
-      <wsdl:part name="password" type="xsd:string"/>
+		<wsdl:part name="password" type="xsd:string" />
 
-      <wsdl:part name="appName" type="xsd:string"/>
+		<wsdl:part name="appName" type="xsd:string" />
 
-   </wsdl:message>
+	</wsdl:message>
 
-   <wsdl:message name="getAssembledDocumentRequest">
+	<wsdl:message name="getAssembledDocumentRequest">
 
-      <wsdl:part name="documentName" type="xsd:string"/>
+		<wsdl:part name="documentName" type="xsd:string" />
 
-      <wsdl:part name="customerData" type="xsd:string"/>
+		<wsdl:part name="customerData" type="xsd:string" />
 
-      <wsdl:part name="userName" type="xsd:string"/>
+		<wsdl:part name="userName" type="xsd:string" />
 
-      <wsdl:part name="password" type="xsd:string"/>
+		<wsdl:part name="password" type="xsd:string" />
 
-      <wsdl:part name="appName" type="xsd:string"/>
+		<wsdl:part name="appName" type="xsd:string" />
 
-   </wsdl:message>
+	</wsdl:message>
 
-   <wsdl:message name="publishMSOHTMLDocumentRequest">
+	<wsdl:message name="publishMSOHTMLDocumentRequest">
 
-      <wsdl:part name="documentName" type="xsd:string"/>
+		<wsdl:part name="documentName" type="xsd:string" />
 
-      <wsdl:part name="customerData" type="xsd:string"/>
+		<wsdl:part name="customerData" type="xsd:string" />
 
-      <wsdl:part name="moshtml" type="xsd:base64Binary"/>
+		<wsdl:part name="moshtml" type="xsd:base64Binary" />
 
-      <wsdl:part name="outputProfileName" type="xsd:string"/>
+		<wsdl:part name="outputProfileName" type="xsd:string" />
 
-      <wsdl:part name="userName" type="xsd:string"/>
+		<wsdl:part name="userName" type="xsd:string" />
 
-      <wsdl:part name="password" type="xsd:string"/>
+		<wsdl:part name="password" type="xsd:string" />
 
-      <wsdl:part name="appName" type="xsd:string"/>
+		<wsdl:part name="appName" type="xsd:string" />
 
-   </wsdl:message>
+	</wsdl:message>
 
-   <wsdl:message name="previewHTMLResponse">
+	<wsdl:message name="previewHTMLResponse">
 
-      <wsdl:part name="previewHTMLReturn" type="xsd:base64Binary"/>
+		<wsdl:part name="previewHTMLReturn" type="xsd:base64Binary" />
 
-   </wsdl:message>
+	</wsdl:message>
 
-   <wsdl:message name="previewPDFResponse">
+	<wsdl:message name="previewPDFResponse">
 
-      <wsdl:part name="previewPDFReturn" type="xsd:base64Binary"/>
+		<wsdl:part name="previewPDFReturn" type="xsd:base64Binary" />
 
-   </wsdl:message>
+	</wsdl:message>
 
-   <wsdl:message name="outputProfilesForDocumentRequest">
+	<wsdl:message name="outputProfilesForDocumentRequest">
 
-      <wsdl:part name="documentName" type="xsd:string"/>
+		<wsdl:part name="documentName" type="xsd:string" />
 
-      <wsdl:part name="userName" type="xsd:string"/>
+		<wsdl:part name="userName" type="xsd:string" />
 
-      <wsdl:part name="password" type="xsd:string"/>
+		<wsdl:part name="password" type="xsd:string" />
 
-      <wsdl:part name="appName" type="xsd:string"/>
+		<wsdl:part name="appName" type="xsd:string" />
 
-   </wsdl:message>
+	</wsdl:message>
 
-   <wsdl:message name="previewHTMLRequest">
+	<wsdl:message name="previewHTMLRequest">
 
-      <wsdl:part name="userName" type="xsd:string"/>
+		<wsdl:part name="userName" type="xsd:string" />
 
-      <wsdl:part name="password" type="xsd:string"/>
+		<wsdl:part name="password" type="xsd:string" />
 
-      <wsdl:part name="document" type="xsd:string"/>
+		<wsdl:part name="document" type="xsd:string" />
 
-      <wsdl:part name="customer" type="xsd:string"/>
+		<wsdl:part name="customer" type="xsd:string" />
 
-   </wsdl:message>
+	</wsdl:message>
 
-   <wsdl:message name="previewPDFRequest">
+	<wsdl:message name="previewPDFRequest">
 
-      <wsdl:part name="documentName" type="xsd:string"/>
+		<wsdl:part name="documentName" type="xsd:string" />
 
-      <wsdl:part name="userName" type="xsd:string"/>
+		<wsdl:part name="userName" type="xsd:string" />
 
-      <wsdl:part name="password" type="xsd:string"/>
+		<wsdl:part name="password" type="xsd:string" />
 
-      <wsdl:part name="customerData" type="xsd:string"/>
+		<wsdl:part name="customerData" type="xsd:string" />
 
-      <wsdl:part name="appName" type="xsd:string"/>
+		<wsdl:part name="appName" type="xsd:string" />
 
-   </wsdl:message>
+	</wsdl:message>
 
-   <wsdl:message name="getAssembledDocumentResponse">
+	<wsdl:message name="getAssembledDocumentResponse">
 
-      <wsdl:part name="getAssembledDocumentReturn" type="xsd:base64Binary"/>
+		<wsdl:part name="getAssembledDocumentReturn" type="xsd:base64Binary" />
 
-   </wsdl:message>
+	</wsdl:message>
 
-   <wsdl:message name="documentsForCategoryResponse">
+	<wsdl:message name="documentsForCategoryResponse">
 
-      <wsdl:part name="documentsForCategoryReturn" type="intf:ArrayOfString"/>
+		<wsdl:part name="documentsForCategoryReturn" type="intf:ArrayOfString" />
 
-   </wsdl:message>
+	</wsdl:message>
 
-   <wsdl:message name="categoriesForUserResponse">
+	<wsdl:message name="categoriesForUserResponse">
 
-      <wsdl:part name="categoriesForUserReturn" type="intf:ArrayOfString"/>
+		<wsdl:part name="categoriesForUserReturn" type="intf:ArrayOfString" />
 
-   </wsdl:message>
+	</wsdl:message>
 
-   <wsdl:message name="publishDocumentRequest">
+	<wsdl:message name="publishDocumentRequest">
 
-      <wsdl:part name="documentName" type="xsd:string"/>
+		<wsdl:part name="documentName" type="xsd:string" />
 
-      <wsdl:part name="userName" type="xsd:string"/>
+		<wsdl:part name="userName" type="xsd:string" />
 
-      <wsdl:part name="password" type="xsd:string"/>
+		<wsdl:part name="password" type="xsd:string" />
 
-      <wsdl:part name="outputProfile" type="xsd:string"/>
+		<wsdl:part name="outputProfile" type="xsd:string" />
 
-      <wsdl:part name="customerData" type="xsd:string"/>
+		<wsdl:part name="customerData" type="xsd:string" />
 
-      <wsdl:part name="appName" type="xsd:string"/>
+		<wsdl:part name="appName" type="xsd:string" />
 
-   </wsdl:message>
+	</wsdl:message>
 
-   <wsdl:message name="categoriesForUserRequest">
+	<wsdl:message name="categoriesForUserRequest">
 
-      <wsdl:part name="userName" type="xsd:string"/>
+		<wsdl:part name="userName" type="xsd:string" />
 
-      <wsdl:part name="password" type="xsd:string"/>
+		<wsdl:part name="password" type="xsd:string" />
 
-      <wsdl:part name="appName" type="xsd:string"/>
+		<wsdl:part name="appName" type="xsd:string" />
 
-   </wsdl:message>
+	</wsdl:message>
 
-   <wsdl:portType name="XPressionRequest">
+	<wsdl:portType name="XPressionRequest">
 
-      <wsdl:operation name="publishDocument" parameterOrder="documentName userName password outputProfile customerData appName">
+		<wsdl:operation name="publishDocument"
+			parameterOrder="documentName userName password outputProfile customerData appName">
 
-         <wsdl:input message="intf:publishDocumentRequest" name="publishDocumentRequest"/>
+			<wsdl:input message="intf:publishDocumentRequest" name="publishDocumentRequest" />
 
-         <wsdl:output message="intf:publishDocumentResponse" name="publishDocumentResponse"/>
+			<wsdl:output message="intf:publishDocumentResponse" name="publishDocumentResponse" />
 
-      </wsdl:operation>
+		</wsdl:operation>
 
-      <wsdl:operation name="previewHTML" parameterOrder="userName password document customer">
+		<wsdl:operation name="previewHTML"
+			parameterOrder="userName password document customer">
 
-         <wsdl:input message="intf:previewHTMLRequest" name="previewHTMLRequest"/>
+			<wsdl:input message="intf:previewHTMLRequest" name="previewHTMLRequest" />
 
-         <wsdl:output message="intf:previewHTMLResponse" name="previewHTMLResponse"/>
+			<wsdl:output message="intf:previewHTMLResponse" name="previewHTMLResponse" />
 
-      </wsdl:operation>
+		</wsdl:operation>
 
-      <wsdl:operation name="previewPDF" parameterOrder="documentName userName password customerData appName">
+		<wsdl:operation name="previewPDF"
+			parameterOrder="documentName userName password customerData appName">
 
-         <wsdl:input message="intf:previewPDFRequest" name="previewPDFRequest"/>
+			<wsdl:input message="intf:previewPDFRequest" name="previewPDFRequest" />
 
-         <wsdl:output message="intf:previewPDFResponse" name="previewPDFResponse"/>
+			<wsdl:output message="intf:previewPDFResponse" name="previewPDFResponse" />
 
-      </wsdl:operation>
+		</wsdl:operation>
 
-      <wsdl:operation name="publishAndReturnDocument" parameterOrder="documentName userName password outputProfile customerData applicationName">
+		<wsdl:operation name="publishAndReturnDocument"
+			parameterOrder="documentName userName password outputProfile customerData applicationName">
 
-         <wsdl:input message="intf:publishAndReturnDocumentRequest" name="publishAndReturnDocumentRequest"/>
+			<wsdl:input message="intf:publishAndReturnDocumentRequest"
+				name="publishAndReturnDocumentRequest" />
 
-         <wsdl:output message="intf:publishAndReturnDocumentResponse" name="publishAndReturnDocumentResponse"/>
+			<wsdl:output message="intf:publishAndReturnDocumentResponse"
+				name="publishAndReturnDocumentResponse" />
 
-      </wsdl:operation>
+		</wsdl:operation>
 
-      <wsdl:operation name="categoriesForUser" parameterOrder="userName password appName">
+		<wsdl:operation name="categoriesForUser"
+			parameterOrder="userName password appName">
 
-         <wsdl:input message="intf:categoriesForUserRequest" name="categoriesForUserRequest"/>
+			<wsdl:input message="intf:categoriesForUserRequest" name="categoriesForUserRequest" />
 
-         <wsdl:output message="intf:categoriesForUserResponse" name="categoriesForUserResponse"/>
+			<wsdl:output message="intf:categoriesForUserResponse"
+				name="categoriesForUserResponse" />
 
-      </wsdl:operation>
+		</wsdl:operation>
 
-      <wsdl:operation name="documentsForCategory" parameterOrder="documentCategory userName password appName">
+		<wsdl:operation name="documentsForCategory"
+			parameterOrder="documentCategory userName password appName">
 
-         <wsdl:input message="intf:documentsForCategoryRequest" name="documentsForCategoryRequest"/>
+			<wsdl:input message="intf:documentsForCategoryRequest"
+				name="documentsForCategoryRequest" />
 
-         <wsdl:output message="intf:documentsForCategoryResponse" name="documentsForCategoryResponse"/>
+			<wsdl:output message="intf:documentsForCategoryResponse"
+				name="documentsForCategoryResponse" />
 
-      </wsdl:operation>
+		</wsdl:operation>
 
-      <wsdl:operation name="outputProfilesForDocument" parameterOrder="documentName userName password appName">
+		<wsdl:operation name="outputProfilesForDocument"
+			parameterOrder="documentName userName password appName">
 
-         <wsdl:input message="intf:outputProfilesForDocumentRequest" name="outputProfilesForDocumentRequest"/>
+			<wsdl:input message="intf:outputProfilesForDocumentRequest"
+				name="outputProfilesForDocumentRequest" />
 
-         <wsdl:output message="intf:outputProfilesForDocumentResponse" name="outputProfilesForDocumentResponse"/>
+			<wsdl:output message="intf:outputProfilesForDocumentResponse"
+				name="outputProfilesForDocumentResponse" />
 
-      </wsdl:operation>
+		</wsdl:operation>
 
-      <wsdl:operation name="getBDT" parameterOrder="documentName customerData userName password appName">
+		<wsdl:operation name="getBDT"
+			parameterOrder="documentName customerData userName password appName">
 
-         <wsdl:input message="intf:getBDTRequest" name="getBDTRequest"/>
+			<wsdl:input message="intf:getBDTRequest" name="getBDTRequest" />
 
-         <wsdl:output message="intf:getBDTResponse" name="getBDTResponse"/>
+			<wsdl:output message="intf:getBDTResponse" name="getBDTResponse" />
 
-      </wsdl:operation>
+		</wsdl:operation>
 
-      <wsdl:operation name="getAssembledDocument" parameterOrder="documentName customerData userName password appName">
+		<wsdl:operation name="getAssembledDocument"
+			parameterOrder="documentName customerData userName password appName">
 
-         <wsdl:input message="intf:getAssembledDocumentRequest" name="getAssembledDocumentRequest"/>
+			<wsdl:input message="intf:getAssembledDocumentRequest"
+				name="getAssembledDocumentRequest" />
 
-         <wsdl:output message="intf:getAssembledDocumentResponse" name="getAssembledDocumentResponse"/>
+			<wsdl:output message="intf:getAssembledDocumentResponse"
+				name="getAssembledDocumentResponse" />
 
-      </wsdl:operation>
+		</wsdl:operation>
 
-      <wsdl:operation name="publishMSOHTMLDocument" parameterOrder="documentName customerData moshtml outputProfileName userName password appName">
+		<wsdl:operation name="publishMSOHTMLDocument"
+			parameterOrder="documentName customerData moshtml outputProfileName userName password appName">
 
-         <wsdl:input message="intf:publishMSOHTMLDocumentRequest" name="publishMSOHTMLDocumentRequest"/>
+			<wsdl:input message="intf:publishMSOHTMLDocumentRequest"
+				name="publishMSOHTMLDocumentRequest" />
 
-         <wsdl:output message="intf:publishMSOHTMLDocumentResponse" name="publishMSOHTMLDocumentResponse"/>
+			<wsdl:output message="intf:publishMSOHTMLDocumentResponse"
+				name="publishMSOHTMLDocumentResponse" />
 
-      </wsdl:operation>
+		</wsdl:operation>
 
-   </wsdl:portType>
+	</wsdl:portType>
 
-   <wsdl:binding name="xPressionRequestSoapBinding" type="intf:XPressionRequest">
+	<wsdl:binding name="xPressionRequestSoapBinding" type="intf:XPressionRequest">
 
-      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdlsoap:binding style="rpc"
+			transport="http://schemas.xmlsoap.org/soap/http" />
 
-      <wsdl:operation name="publishDocument">
+		<wsdl:operation name="publishDocument">
 
-         <wsdlsoap:operation soapAction=""/>
+			<wsdlsoap:operation soapAction="" />
 
-         <wsdl:input name="publishDocumentRequest">
+			<wsdl:input name="publishDocumentRequest">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.documentrequester.com/schemas/" use="encoded"/>
+				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
 
-         </wsdl:input>
+			</wsdl:input>
 
-         <wsdl:output name="publishDocumentResponse">
+			<wsdl:output name="publishDocumentResponse">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.documentrequester.com/schemas/" use="encoded"/>
+				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
 
-         </wsdl:output>
+			</wsdl:output>
 
-      </wsdl:operation>
+		</wsdl:operation>
 
-      <wsdl:operation name="previewHTML">
+		<wsdl:operation name="previewHTML">
 
-         <wsdlsoap:operation soapAction=""/>
+			<wsdlsoap:operation soapAction="" />
 
-         <wsdl:input name="previewHTMLRequest">
+			<wsdl:input name="previewHTMLRequest">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.documentrequester.com/schemas/" use="encoded"/>
+				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
 
-         </wsdl:input>
+			</wsdl:input>
 
-         <wsdl:output name="previewHTMLResponse">
+			<wsdl:output name="previewHTMLResponse">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.documentrequester.com/schemas/" use="encoded"/>
+				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
 
-         </wsdl:output>
+			</wsdl:output>
 
-      </wsdl:operation>
+		</wsdl:operation>
 
-      <wsdl:operation name="previewPDF">
+		<wsdl:operation name="previewPDF">
 
-         <wsdlsoap:operation soapAction=""/>
+			<wsdlsoap:operation soapAction="" />
 
-         <wsdl:input name="previewPDFRequest">
+			<wsdl:input name="previewPDFRequest">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.documentrequester.com/schemas/" use="encoded"/>
+				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
 
-         </wsdl:input>
+			</wsdl:input>
 
-         <wsdl:output name="previewPDFResponse">
+			<wsdl:output name="previewPDFResponse">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.documentrequester.com/schemas/" use="encoded"/>
+				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
 
-         </wsdl:output>
+			</wsdl:output>
 
-      </wsdl:operation>
+		</wsdl:operation>
 
-      <wsdl:operation name="publishAndReturnDocument">
+		<wsdl:operation name="publishAndReturnDocument">
 
-         <wsdlsoap:operation soapAction=""/>
+			<wsdlsoap:operation soapAction="" />
 
-         <wsdl:input name="publishAndReturnDocumentRequest">
+			<wsdl:input name="publishAndReturnDocumentRequest">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.documentrequester.com/schemas/" use="encoded"/>
+				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
 
-         </wsdl:input>
+			</wsdl:input>
 
-         <wsdl:output name="publishAndReturnDocumentResponse">
+			<wsdl:output name="publishAndReturnDocumentResponse">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.documentrequester.com/schemas/" use="encoded"/>
+				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
 
-         </wsdl:output>
+			</wsdl:output>
 
-      </wsdl:operation>
+		</wsdl:operation>
 
-      <wsdl:operation name="categoriesForUser">
+		<wsdl:operation name="categoriesForUser">
 
-         <wsdlsoap:operation soapAction=""/>
+			<wsdlsoap:operation soapAction="" />
 
-         <wsdl:input name="categoriesForUserRequest">
+			<wsdl:input name="categoriesForUserRequest">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.documentrequester.com/schemas/" use="encoded"/>
+				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
 
-         </wsdl:input>
+			</wsdl:input>
 
-         <wsdl:output name="categoriesForUserResponse">
+			<wsdl:output name="categoriesForUserResponse">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.documentrequester.com/schemas/" use="encoded"/>
+				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
 
-         </wsdl:output>
+			</wsdl:output>
 
-      </wsdl:operation>
+		</wsdl:operation>
 
-      <wsdl:operation name="documentsForCategory">
+		<wsdl:operation name="documentsForCategory">
 
-         <wsdlsoap:operation soapAction=""/>
+			<wsdlsoap:operation soapAction="" />
 
-         <wsdl:input name="documentsForCategoryRequest">
+			<wsdl:input name="documentsForCategoryRequest">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.documentrequester.com/schemas/" use="encoded"/>
+				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
 
-         </wsdl:input>
+			</wsdl:input>
 
-         <wsdl:output name="documentsForCategoryResponse">
+			<wsdl:output name="documentsForCategoryResponse">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.documentrequester.com/schemas/" use="encoded"/>
+				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
 
-         </wsdl:output>
+			</wsdl:output>
 
-      </wsdl:operation>
+		</wsdl:operation>
 
-      <wsdl:operation name="outputProfilesForDocument">
+		<wsdl:operation name="outputProfilesForDocument">
 
-         <wsdlsoap:operation soapAction=""/>
+			<wsdlsoap:operation soapAction="" />
 
-         <wsdl:input name="outputProfilesForDocumentRequest">
+			<wsdl:input name="outputProfilesForDocumentRequest">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.documentrequester.com/schemas/" use="encoded"/>
+				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
 
-         </wsdl:input>
+			</wsdl:input>
 
-         <wsdl:output name="outputProfilesForDocumentResponse">
+			<wsdl:output name="outputProfilesForDocumentResponse">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.documentrequester.com/schemas/" use="encoded"/>
+				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
 
-         </wsdl:output>
+			</wsdl:output>
 
-      </wsdl:operation>
+		</wsdl:operation>
 
-      <wsdl:operation name="getBDT">
+		<wsdl:operation name="getBDT">
 
-         <wsdlsoap:operation soapAction=""/>
+			<wsdlsoap:operation soapAction="" />
 
-         <wsdl:input name="getBDTRequest">
+			<wsdl:input name="getBDTRequest">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.documentrequester.com/schemas/" use="encoded"/>
+				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
 
-         </wsdl:input>
+			</wsdl:input>
 
-         <wsdl:output name="getBDTResponse">
+			<wsdl:output name="getBDTResponse">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.documentrequester.com/schemas/" use="encoded"/>
+				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
 
-         </wsdl:output>
+			</wsdl:output>
 
-      </wsdl:operation>
+		</wsdl:operation>
 
-      <wsdl:operation name="getAssembledDocument">
+		<wsdl:operation name="getAssembledDocument">
 
-         <wsdlsoap:operation soapAction=""/>
+			<wsdlsoap:operation soapAction="" />
 
-         <wsdl:input name="getAssembledDocumentRequest">
+			<wsdl:input name="getAssembledDocumentRequest">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.documentrequester.com/schemas/" use="encoded"/>
+				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
 
-         </wsdl:input>
+			</wsdl:input>
 
-         <wsdl:output name="getAssembledDocumentResponse">
+			<wsdl:output name="getAssembledDocumentResponse">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.documentrequester.com/schemas/" use="encoded"/>
+				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
 
-         </wsdl:output>
+			</wsdl:output>
 
-      </wsdl:operation>
+		</wsdl:operation>
 
-      <wsdl:operation name="publishMSOHTMLDocument">
+		<wsdl:operation name="publishMSOHTMLDocument">
 
-         <wsdlsoap:operation soapAction=""/>
+			<wsdlsoap:operation soapAction="" />
 
-         <wsdl:input name="publishMSOHTMLDocumentRequest">
+			<wsdl:input name="publishMSOHTMLDocumentRequest">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.documentrequester.com/schemas/" use="encoded"/>
+				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
 
-         </wsdl:input>
+			</wsdl:input>
 
-         <wsdl:output name="publishMSOHTMLDocumentResponse">
+			<wsdl:output name="publishMSOHTMLDocumentResponse">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.documentrequester.com/schemas/" use="encoded"/>
+				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
 
-         </wsdl:output>
+			</wsdl:output>
 
-      </wsdl:operation>
+		</wsdl:operation>
 
-   </wsdl:binding>
+	</wsdl:binding>
 
-   <wsdl:service name="XPressionRequestService">
+	<wsdl:service name="XPressionRequestService">
 
-      <wsdl:port binding="intf:xPressionRequestSoapBinding" name="xPressionRequest">
+		<wsdl:port binding="intf:xPressionRequestSoapBinding" name="xPressionRequest">
 
-         <wsdlsoap:address location="http://nzakl20sv192/xPressionWebService/services/xPressionRequest"/>
+			<wsdlsoap:address
+				location="http://nzakl20sv192/xPressionWebService/services/xPressionRequest" />
 
-      </wsdl:port>
+		</wsdl:port>
 
-   </wsdl:service>
+	</wsdl:service>
 
 </wsdl:definitions>

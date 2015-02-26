@@ -10,8 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 
 @Configuration
-@ImportResource({ "classpath:META-INF/cxf/cxf.xml",
-		"classpath:META-INF/cxf/cxf-servlet.xml" })
+@ImportResource({ "classpath:META-INF/cxf/cxf.xml" })
 public class CamelCxfConfig {
 
 	// http://localhost:8989/wssample/ws/user?wsdl

@@ -4,21 +4,20 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>nz.co.ws.sample</groupId>
-		<artifactId>ws-sample</artifactId>
+		<groupId>nz.co.ws.proxy</groupId>
+		<artifactId>ws-sample-proxy</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>ws-sample-integration</artifactId>
-	<name>ws-sample-integration</name>
+	<artifactId>ws-sample-proxy-integration</artifactId>
+	<name>ws-sample-proxy-integration</name>
 	<url>http://maven.apache.org</url>
 	<properties>
-		<jaxb2-basics.version>0.6.4</jaxb2-basics.version>
-		<maven-jaxb2-plugin.version>0.8.2</maven-jaxb2-plugin.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>ws-sample-shared</artifactId>
+			<artifactId>ws-sample-proxy-shared</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
@@ -55,75 +54,36 @@
 		<dependency>
 			<groupId>org.jvnet.jaxb2_commons</groupId>
 			<artifactId>jaxb2-basics-runtime</artifactId>
-			<version>${jaxb2-basics.version}</version>
 		</dependency>
-		<!--  
-		<dependency>
-			<groupId>org.jvnet.jaxb2_commons</groupId>
-			<artifactId>jaxb2-basics-runtime</artifactId>
-			<version>${jaxb2-basics.version}</version>
-		</dependency>
-		-->
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-core</artifactId>
-			<version>${cxf.version}</version>
 		</dependency>
-		<!-- cxf 
-		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-rt-frontend-jaxws</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-rt-transports-http</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-rt-bindings-soap</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-rt-transports-http-jetty</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
-		</dependency>
-		-->
 	</dependencies>
-
 	<build>
 		<defaultGoal>install</defaultGoal>
 		<plugins>
-
 			<!-- CXF wsdl2java generator, will plugin to the compile goal -->
 			<plugin>
 				<groupId>org.apache.cxf</groupId>
 				<artifactId>cxf-codegen-plugin</artifactId>
+				<version>${cxf.version}</version>
 				<!-- <executions> <execution> <id>generate-sources</id> <phase>generate-sources</phase> 
 					<configuration> <sourceRoot>${basedir}/target/generated/src/main/java</sourceRoot> 
-					<wsdlOptions> <wsdlOption> <wsdl>${basedir}/src/main/resources/etc/report_incident.wsdl</wsdl> 
-					</wsdlOption> </wsdlOptions> </configuration> <goals> <goal>wsdl2java</goal> 
+					<wsdlOptions> <wsdlOption> <wsdl>${basedir}/src/main/resources/etc/xPression.wsdl</wsdl> 
+					<extraargs> <extraarg>-validate</extraarg> <extraarg>-client</extraarg> <extraarg>-verbose</extraarg> 
+					<extraarg>-xjc-verbose</extraarg> <extraarg>-p</extraarg> <extraarg>nz.co.tower.xpression.client.stub</extraarg> 
+					</extraargs> </wsdlOption> </wsdlOptions> </configuration> <goals> <goal>wsdl2java</goal> 
 					</goals> </execution> </executions> -->
 			</plugin>
 
-			<!-- <plugin> <groupId>org.jvnet.jaxb2.maven2</groupId> <artifactId>maven-jaxb2-plugin</artifactId> 
-				<version>${maven-jaxb2-plugin.version}</version> <executions> <execution> 
-				<id>generate</id> <goals> <goal>generate</goal> </goals> </execution> </executions> 
-				<configuration> <schemaDirectory>src/main/xsd</schemaDirectory> <generatePackage>com.camelcookbook.transformation.myschema</generatePackage> 
-				<extension>true</extension> <args> <arg>-XtoString</arg> <arg>-Xequals</arg> 
-				<arg>-XhashCode</arg> <arg>-Xcopyable</arg> </args> <plugins> <plugin> <groupId>org.jvnet.jaxb2_commons</groupId> 
-				<artifactId>jaxb2-basics</artifactId> <version>${jaxb2-basics.version}</version> 
-				</plugin> </plugins> </configuration> </plugin> -->
+
 
 			<plugin>
 				<groupId>org.apache.camel</groupId>
 				<artifactId>camel-maven-plugin</artifactId>
-				<version>2.14.1</version>
+				<version>${camel.version}</version>
 			</plugin>
-
 		</plugins>
 	</build>
-
 </project>
