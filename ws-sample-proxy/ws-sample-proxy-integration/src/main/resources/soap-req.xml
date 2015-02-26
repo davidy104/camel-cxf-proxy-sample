@@ -1,0 +1,8 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Body>
+		<ns2:CreateUserRequest xmlns:ns2="http://ws.integration.sample.ws.co.nz">
+			<ns2:role>admin</ns2:role>
+			<ns2:info>&lt;user&gt;</ns2:info>
+		</ns2:CreateUserRequest>
+	</soap:Body>
+</soap:Envelope>

@@ -63,20 +63,38 @@
 	<build>
 		<defaultGoal>install</defaultGoal>
 		<plugins>
-			<!-- CXF wsdl2java generator, will plugin to the compile goal -->
+			<!-- CXF wsdl2java generator, will plugin to the compile goal 
 			<plugin>
 				<groupId>org.apache.cxf</groupId>
 				<artifactId>cxf-codegen-plugin</artifactId>
 				<version>${cxf.version}</version>
-				<!-- <executions> <execution> <id>generate-sources</id> <phase>generate-sources</phase> 
-					<configuration> <sourceRoot>${basedir}/target/generated/src/main/java</sourceRoot> 
-					<wsdlOptions> <wsdlOption> <wsdl>${basedir}/src/main/resources/etc/xPression.wsdl</wsdl> 
-					<extraargs> <extraarg>-validate</extraarg> <extraarg>-client</extraarg> <extraarg>-verbose</extraarg> 
-					<extraarg>-xjc-verbose</extraarg> <extraarg>-p</extraarg> <extraarg>nz.co.tower.xpression.client.stub</extraarg> 
-					</extraargs> </wsdlOption> </wsdlOptions> </configuration> <goals> <goal>wsdl2java</goal> 
-					</goals> </execution> </executions> -->
+				<executions>
+					<execution>
+						<id>generate-sources</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${basedir}/target/generated/src/main/java</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>${basedir}/src/main/resources/etc/user-service.wsdl</wsdl>
+									<extraargs>
+										<extraarg>-validate</extraarg>
+										<extraarg>-client</extraarg>
+										<extraarg>-verbose</extraarg>
+										<extraarg>-xjc-verbose</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>nz.co.ws.proxy.integration.stub</extraarg>
+									</extraargs>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
-
+-->
 
 
 			<plugin>
