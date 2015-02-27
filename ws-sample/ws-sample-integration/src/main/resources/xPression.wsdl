@@ -325,45 +325,27 @@
 
 	<wsdl:binding name="xPressionRequestSoapBinding" type="intf:XPressionRequest">
 
-		<wsdlsoap:binding style="rpc"
-			transport="http://schemas.xmlsoap.org/soap/http" />
-
+		<wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
 		<wsdl:operation name="publishDocument">
-
 			<wsdlsoap:operation soapAction="" />
-
 			<wsdl:input name="publishDocumentRequest">
-
 				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
 					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
-
 			</wsdl:input>
-
 			<wsdl:output name="publishDocumentResponse">
-
 				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
 					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
-
 			</wsdl:output>
-
 		</wsdl:operation>
-
 		<wsdl:operation name="previewHTML">
-
 			<wsdlsoap:operation soapAction="" />
-
 			<wsdl:input name="previewHTMLRequest">
-
 				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
 					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
-
 			</wsdl:input>
-
 			<wsdl:output name="previewHTMLResponse">
-
 				<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
 					namespace="http://www.documentrequester.com/schemas/" use="encoded" />
-
 			</wsdl:output>
 
 		</wsdl:operation>

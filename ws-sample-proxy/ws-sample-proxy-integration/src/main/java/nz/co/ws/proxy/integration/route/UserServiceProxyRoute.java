@@ -1,19 +1,11 @@
 package nz.co.ws.proxy.integration.route;
 
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.Map;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.component.cxf.common.message.CxfConstants;
-import org.apache.commons.io.IOUtils;
-import org.w3c.dom.Document;
-import org.xml.sax.InputSource;
 
 public class UserServiceProxyRoute extends RouteBuilder {
 
@@ -27,25 +19,11 @@ public class UserServiceProxyRoute extends RouteBuilder {
 				// .setFaultBody(method(FaultHandler.class,
 				// "createFault"))
 				.end()
+				.convertBodyTo(String.class)
 				.to("log:input")
-				// .transform(new Expression(){
-				// @Override
-				// public <T> T evaluate(Exchange exchange, Class<T> type) {
-				// final String operationName =
-				// exchange.getIn().getHeader(CxfConstants.OPERATION_NAME,String.class);
-				// System.out.println("operationName:{} "+operationName);
-				// InputStream rawInput = null;
-				// rawInput = exchange.getIn().getBody(InputStream.class);
-				//
-				// return null;
-				// }
-				// })
-
 				.process(new Processor() {
 					@Override
 					public void process(Exchange exchange) throws Exception {
-						final String operationName = exchange.getIn().getHeader(CxfConstants.OPERATION_NAME, String.class);
-						System.out.println("operationName:{} " + operationName);
 						Map<String, Object> headerMap =
 								exchange.getIn().getHeaders();
 						for (Map.Entry<String, Object> entry :
@@ -54,24 +32,12 @@ public class UserServiceProxyRoute extends RouteBuilder {
 									" Value : "
 									+ entry.getValue());
 						}
-						InputStream rawInput = exchange.getIn().getBody(InputStream.class);
-						String bodyString = IOUtils.toString(rawInput, "UTF-8");
-						System.out.println("bodyString:{} " + bodyString);
-
-						Document respDoc = null;
-						try {
-							DocumentBuilderFactory docBF = DocumentBuilderFactory.newInstance();
-							DocumentBuilder docBuilder = (DocumentBuilder) docBF.newDocumentBuilder();
-							InputSource inSource = new InputSource(new InputStreamReader(rawInput, "UTF-8"));
-							respDoc = docBuilder.parse(inSource);
-						} catch (final Exception e) {
-							throw new IllegalStateException(e);
-						}
-						exchange.getIn().setBody(respDoc);
+						final String bodyString = exchange.getIn().getBody(String.class);
+						System.out.println("bodyString-------------:{} " + bodyString);
 					}
 				})
 				.to("log:aftTransform")
-				// .bean(new RawDocProcessBean(), "process")
+				.convertBodyTo(InputStream.class)
 				.removeHeaders("CamelHttp*")
 				.to("log:output")
 				.to(WS_ENDPOINT)
